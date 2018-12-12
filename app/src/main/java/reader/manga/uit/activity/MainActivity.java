@@ -1,12 +1,10 @@
 package reader.manga.uit.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import reader.manga.uit.R;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
