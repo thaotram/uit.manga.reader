@@ -1,4 +1,4 @@
-query mangas{
+query getMangas {
     mangas {
         id
         name
