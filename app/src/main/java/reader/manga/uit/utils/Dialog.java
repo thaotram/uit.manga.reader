@@ -14,6 +14,14 @@ public class Dialog {
                 .show();
     }
 
+    public static void OpenConfirm(Context context, String message, Callback yes, Callback no) {
+        new AlertDialog.Builder(context)
+                .setMessage(message)
+                .setPositiveButton(R.string.dialog_yes, (dialog, which) -> yes.call())
+                .setNegativeButton(R.string.dialog_no, (dialog, which) -> no.call())
+                .show();
+    }
+
     public interface Callback {
         void call();
     }
