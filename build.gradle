@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
         classpath 'io.realm:realm-gradle-plugin:5.1.0'
+        classpath 'com.apollographql.apollo:apollo-gradle-plugin:1.0.0-alpha3'
     }
 }
 

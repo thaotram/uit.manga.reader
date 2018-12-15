@@ -1,0 +1,14 @@
+query mangas {
+    mangas {
+        id
+        name
+        description
+        status
+        image {
+            url
+        }
+        genres {
+            name
+        }
+    }
+}

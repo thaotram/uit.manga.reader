@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
+apply plugin: 'com.apollographql.android'
 
 android {
     compileSdkVersion 27
@@ -39,6 +40,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha3'
+    implementation "com.apollographql.apollo:apollo-android-support:1.0.0-alpha3"
 
     implementation 'org.apache.commons:commons-lang3:3.7'
     implementation 'com.android.support:appcompat-v7:27.1.1'
