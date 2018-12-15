@@ -14,14 +14,13 @@ import io.realm.model_model_ChapterRealmProxy;
         value = Parcel.Serialization.BEAN,
         analyze = {Chapter.class})
 public class Chapter extends RealmObject {
+    @LinkingObjects("chapter")
+    private final RealmResults<Image> images = null;
     @PrimaryKey
     private int id;
     private String name;
     private Date date;
     private Manga manga;
-
-    @LinkingObjects("chapter")
-    private final RealmResults<Image> images = null;
 
     public int getId() {
         return id;

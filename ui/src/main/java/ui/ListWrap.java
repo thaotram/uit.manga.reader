@@ -16,17 +16,6 @@ public class ListWrap extends RecyclerView {
         initialize(context);
     }
 
-    public ListWrap(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        initialize(context);
-    }
-
-    public ListWrap(Context context, @Nullable AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        initialize(context);
-
-    }
-
     private void initialize(Context context) {
         initializeSelf(context);
     }
@@ -41,5 +30,16 @@ public class ListWrap extends RecyclerView {
         setHasFixedSize(true);
         setClipToPadding(false);
         setClipToOutline(false);
+    }
+
+    public ListWrap(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        initialize(context);
+    }
+
+    public ListWrap(Context context, @Nullable AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        initialize(context);
+
     }
 }

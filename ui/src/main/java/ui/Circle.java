@@ -35,10 +35,6 @@ public class Circle extends View {
         initializePaint();
     }
 
-    private void initializePaint() {
-        paint.setColor(backgroundColor);
-    }
-
     private void initializeAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray;
         typedArray = context.obtainStyledAttributes(attrs, R.styleable.Circle);
@@ -48,6 +44,10 @@ public class Circle extends View {
         backgroundColor = typedArray.getColor(R.styleable.Circle__backgroundColor, Color.BLUE);
 
         typedArray.recycle();
+    }
+
+    private void initializePaint() {
+        paint.setColor(backgroundColor);
     }
 
     public Circle(Context context, @Nullable AttributeSet attrs) {
@@ -61,17 +61,17 @@ public class Circle extends View {
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        width = MeasureSpec.getSize(widthMeasureSpec);
-        height = MeasureSpec.getSize(heightMeasureSpec);
-    }
-
-    @Override
     protected void onDraw(Canvas canvas) {
         final int size = Math.min(width, height);
         final int radius = (int) (minSize + (size - minSize) * ratio) / 2;
         canvas.drawCircle(width / 2, height / 2, radius, paint);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        width = MeasureSpec.getSize(widthMeasureSpec);
+        height = MeasureSpec.getSize(heightMeasureSpec);
     }
 
     public void set_ratio(float ratio) {

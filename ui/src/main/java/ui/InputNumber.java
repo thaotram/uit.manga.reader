@@ -13,6 +13,13 @@ public class InputNumber extends InputText {
         initialize();
     }
 
+    private void initialize() {
+        setInputType(InputType.TYPE_CLASS_NUMBER);
+        setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        setKeyListener(DigitsKeyListener.getInstance(false, true));
+        setFilters(new InputFilter[]{new InputFilterMinMax(1, 999)});
+    }
+
     public InputNumber(Context context, AttributeSet attrs) {
         super(context, attrs);
         initialize();
@@ -21,13 +28,6 @@ public class InputNumber extends InputText {
     public InputNumber(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initialize();
-    }
-
-    private void initialize() {
-        setInputType(InputType.TYPE_CLASS_NUMBER);
-        setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        setKeyListener(DigitsKeyListener.getInstance(false, true));
-        setFilters(new InputFilter[]{new InputFilterMinMax(1, 999)});
     }
 
     class InputFilterMinMax implements InputFilter {

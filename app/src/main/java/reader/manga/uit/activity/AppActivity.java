@@ -11,7 +11,19 @@ import okhttp3.Request;
 
 @SuppressLint("Registered")
 public class AppActivity extends AppCompatActivity {
+    protected final Realm realm = Realm.getDefaultInstance();
     private ApolloClient apolloClient = null;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        realm.close();
+    }
+
+    protected ApolloClient getApolloClient() {
+        if (apolloClient == null) setupApollo();
+        return apolloClient;
+    }
 
     private void setupApollo() {
         OkHttpClient okHttpClient = new OkHttpClient
@@ -29,18 +41,5 @@ public class AppActivity extends AppCompatActivity {
                 .serverUrl("http://localhost:3000/api/graphql")
                 .okHttpClient(okHttpClient)
                 .build();
-    }
-
-    protected final Realm realm = Realm.getDefaultInstance();
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        realm.close();
-    }
-
-    protected ApolloClient getApolloClient() {
-        if (apolloClient == null) setupApollo();
-        return apolloClient;
     }
 }

@@ -22,6 +22,12 @@ public class InputMoney extends InputText {
         initialize();
     }
 
+    private void initialize() {
+        setInputType(InputType.TYPE_CLASS_NUMBER);
+        setKeyListener(DigitsKeyListener.getInstance(false, true));
+        addTextChangedListener(new MoneyTextWatcher());
+    }
+
     public InputMoney(Context context, AttributeSet attrs) {
         super(context, attrs);
         initialize();
@@ -30,12 +36,6 @@ public class InputMoney extends InputText {
     public InputMoney(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initialize();
-    }
-
-    private void initialize() {
-        setInputType(InputType.TYPE_CLASS_NUMBER);
-        setKeyListener(DigitsKeyListener.getInstance(false, true));
-        addTextChangedListener(new MoneyTextWatcher());
     }
 
     // TODO loop button when holding

@@ -34,17 +34,6 @@ public class Avatar extends android.support.v7.widget.AppCompatImageView {
         initialize(context, null);
     }
 
-
-    public Avatar(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        initialize(context, attrs);
-    }
-
-    public Avatar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        initialize(context, attrs);
-    }
-
     private void initialize(Context context, @Nullable AttributeSet attrs) {
         initializeAttr(context, attrs);
         initializeImage();
@@ -71,6 +60,16 @@ public class Avatar extends android.support.v7.widget.AppCompatImageView {
         picasso.setIndicatorsEnabled(true);
     }
 
+    public Avatar(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        initialize(context, attrs);
+    }
+
+    public Avatar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initialize(context, attrs);
+    }
+
     /**
      * Data binding: set_userId
      *
@@ -82,18 +81,18 @@ public class Avatar extends android.support.v7.widget.AppCompatImageView {
     }
 
     @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(outerSize, outerSize);
+        setMeasuredDimension(outerSize, outerSize);
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         Drawable drawable = getDrawable();
         if (drawable == null || outerSize == 0) return;
 
         Bitmap source = ((BitmapDrawable) drawable).getBitmap();
         canvas.drawBitmap(source, 0, 0, null);
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(outerSize, outerSize);
-        setMeasuredDimension(outerSize, outerSize);
     }
 
     private class CircleTransform implements Transformation {

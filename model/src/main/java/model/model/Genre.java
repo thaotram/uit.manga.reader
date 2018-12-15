@@ -12,12 +12,11 @@ import io.realm.model_model_GenreRealmProxy;
         value = Parcel.Serialization.BEAN,
         analyze = {Genre.class})
 public class Genre extends RealmObject {
+    @LinkingObjects("genres")
+    private final RealmResults<Manga> mangas = null;
     @PrimaryKey
     private String name;
     private String description;
-
-    @LinkingObjects("genres")
-    private final RealmResults<Manga> mangas = null;
 
     public String getName() {
         return name;

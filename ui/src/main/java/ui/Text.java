@@ -25,16 +25,6 @@ public class Text extends AppCompatTextView {
         initialize(context, null);
     }
 
-    public Text(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initialize(context, attrs);
-    }
-
-    public Text(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        initialize(context, attrs);
-    }
-
     private void initialize(@NonNull Context context, @Nullable AttributeSet attrs) {
         initializeAttr(context, attrs);
         initializeTypeface(context);
@@ -58,6 +48,16 @@ public class Text extends AppCompatTextView {
                     Typeface.createFromAsset(context.getAssets(), font)
             );
         }
+    }
+
+    public Text(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initialize(context, attrs);
+    }
+
+    public Text(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initialize(context, attrs);
     }
 
     @Override

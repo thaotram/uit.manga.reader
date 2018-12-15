@@ -17,15 +17,9 @@ public class List extends RecyclerView {
         initialize(context, null);
     }
 
-    public List(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        initialize(context, attrs);
-    }
-
-    public List(Context context, @Nullable AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        initialize(context, attrs);
-
+    private void initialize(Context context, AttributeSet attrs) {
+        initializeAttrs(context, attrs);
+        initializeSelf(context);
     }
 
     private void initializeAttrs(Context context, @Nullable AttributeSet attrs) {
@@ -37,11 +31,6 @@ public class List extends RecyclerView {
         typedArray.recycle();
     }
 
-    private void initialize(Context context, AttributeSet attrs) {
-        initializeAttrs(context, attrs);
-        initializeSelf(context);
-    }
-
     private void initializeSelf(Context context) {
         final LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         layoutManager.setStackFromEnd(stackFromEnd);
@@ -49,5 +38,16 @@ public class List extends RecyclerView {
         setHasFixedSize(true);
         setClipToPadding(false);
         setClipToOutline(false);
+    }
+
+    public List(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        initialize(context, attrs);
+    }
+
+    public List(Context context, @Nullable AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        initialize(context, attrs);
+
     }
 }

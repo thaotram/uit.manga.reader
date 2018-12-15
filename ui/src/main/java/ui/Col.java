@@ -11,6 +11,10 @@ public class Col extends LinearLayoutCompat {
         initialize(context, null);
     }
 
+    private void initialize(Context context, @Nullable AttributeSet attrs) {
+        setOrientation(LinearLayoutCompat.VERTICAL);
+    }
+
     public Col(Context context, AttributeSet attrs) {
         super(context, attrs);
         initialize(context, attrs);
@@ -19,9 +23,5 @@ public class Col extends LinearLayoutCompat {
     public Col(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initialize(context, attrs);
-    }
-
-    private void initialize(Context context, @Nullable AttributeSet attrs) {
-        setOrientation(LinearLayoutCompat.VERTICAL);
     }
 }
