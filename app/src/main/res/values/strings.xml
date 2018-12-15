@@ -2,4 +2,5 @@
     <string name="app_name">Manga Reader</string>
     <string name="dialog_yes">Có</string>
     <string name="dialog_no">Không</string>
+    <string name="server_url">http://localhost:3000/api/graphql</string>
 </resources>
