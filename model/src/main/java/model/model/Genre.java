@@ -1,4 +1,4 @@
-package reader.manga.uit.model;
+package model.model;
 
 import io.realm.RealmObject;
 import io.realm.RealmResults;

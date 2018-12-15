@@ -1,4 +1,4 @@
-package reader.manga.uit.model;
+package model.model;
 
 import java.util.Date;
 
