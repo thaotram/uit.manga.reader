@@ -9,6 +9,7 @@ import java.util.Map;
 public class Const {
     public static final String NONE = "";
     public static final String ICON = "fonts/aicon.ttf";
+    public static final String PACIFICO = "fonts/pacifico.ttf";
     public static final String REGULAR = "fonts/segoe regular.ttf";
     public static final String LIGHT = "fonts/segoe light.ttf";
     public static final String BOLD = "fonts/segoe bold.ttf";
@@ -18,6 +19,7 @@ public class Const {
             .put(2, REGULAR)
             .put(3, BOLD)
             .put(4, ICON)
+            .put(5, PACIFICO)
             .build();
     public static final int CENTER = 1;
     public static final int RADIUS_NONE = 0;
