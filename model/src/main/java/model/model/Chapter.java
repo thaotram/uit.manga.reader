@@ -1,12 +1,18 @@
 package model.model;
 
+import org.parceler.Parcel;
+
 import java.util.Date;
 
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 import io.realm.annotations.LinkingObjects;
 import io.realm.annotations.PrimaryKey;
+import io.realm.model_model_ChapterRealmProxy;
 
+@Parcel(implementations = {model_model_ChapterRealmProxy.class},
+        value = Parcel.Serialization.BEAN,
+        analyze = {Chapter.class})
 public class Chapter extends RealmObject {
     @PrimaryKey
     private int id;

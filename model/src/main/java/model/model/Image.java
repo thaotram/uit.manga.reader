@@ -1,8 +1,14 @@
 package model.model;
 
+import org.parceler.Parcel;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import io.realm.model_model_ImageRealmProxy;
 
+@Parcel(implementations = {model_model_ImageRealmProxy.class},
+        value = Parcel.Serialization.BEAN,
+        analyze = {Image.class})
 public class Image extends RealmObject {
     @PrimaryKey
     private int id;

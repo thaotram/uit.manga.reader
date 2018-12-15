@@ -1,11 +1,17 @@
 package model.model;
 
+import org.parceler.Parcel;
+
 import java.util.Date;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import io.realm.model_model_MangaRealmProxy;
 
+@Parcel(implementations = {model_model_MangaRealmProxy.class},
+        value = Parcel.Serialization.BEAN,
+        analyze = {Manga.class})
 public class Manga extends RealmObject {
     @PrimaryKey
     private int id;
