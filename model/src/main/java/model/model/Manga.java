@@ -16,12 +16,12 @@ public class Manga extends RealmObject {
     @PrimaryKey
     private int id;
     private String name;
-    private RealmList<String> associatedNames;
+    private RealmList<String> associatedNames = new RealmList<>();
     private int type;
     private int status;
     private Date publishedFrom;
     private Date publishedTo;
-    private RealmList<Genre> genres;
+    private RealmList<Genre> genres = new RealmList<>();
     private String authors;
     private String description;
     private String imageUrl;
@@ -44,10 +44,6 @@ public class Manga extends RealmObject {
 
     public RealmList<String> getAssociatedNames() {
         return associatedNames;
-    }
-
-    public void setAssociatedNames(RealmList<String> associatedNames) {
-        this.associatedNames = associatedNames;
     }
 
     public int getType() {
@@ -84,10 +80,6 @@ public class Manga extends RealmObject {
 
     public RealmList<Genre> getGenres() {
         return genres;
-    }
-
-    public void setGenres(RealmList<Genre> genres) {
-        this.genres = genres;
     }
 
     public String getAuthors() {
