@@ -5,11 +5,12 @@ import com.apollographql.apollo.ApolloClient;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import reader.manga.uit.R;
+import reader.manga.uit.app.App;
 
 public class ApolloClientHelper {
-    private static final ApolloClient INSTANCE;
+    private static ApolloClient INSTANCE;
 
-    static {
+    public static void Initialize(App app) {
         OkHttpClient okHttpClient = new OkHttpClient
                 .Builder()
                 .addInterceptor(chain -> {
@@ -22,7 +23,7 @@ public class ApolloClientHelper {
                 })
                 .build();
         INSTANCE = ApolloClient.builder()
-                .serverUrl(String.valueOf(R.string.server_url))
+                .serverUrl(app.getString(R.string.server_url))
                 .okHttpClient(okHttpClient)
                 .build();
     }
