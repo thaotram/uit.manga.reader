@@ -4,22 +4,23 @@
         <item name="android:windowBackground">@drawable/background_splash</item>
     </style>
 
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowActivityTransitions">true</item>
 
-        <item name="android:colorPrimaryDark">@color/_dark_1</item>
-        <item name="android:colorPrimary">@color/_dark_0</item>
+        <item name="android:colorPrimaryDark">@color/__light</item>
+        <item name="android:colorPrimary">@color/_main</item>
         <item name="android:colorAccent">#ffcc66</item>
 
-        <item name="android:statusBarColor">@color/_background_status</item>
+        <item name="android:windowLightStatusBar">true</item>
+
 
         <item name="android:windowAnimationStyle">@style/WindowAnimationStyle</item>
     </style>
 
     <style name="TransparentStatusBarTheme" parent="AppTheme">
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowContentOverlay">@null</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowContentOverlay">@null</item>-->
     </style>
 
     <style name="WindowAnimationStyle">
@@ -129,7 +130,7 @@
     </style>
 
     <style name="vr_half">
-        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_width">2dp</item>
         <item name="android:layout_height">30dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:background">@color/_line_color</item>
@@ -141,7 +142,7 @@
 
     <style name="hr_full">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_height">2dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:background">@color/_line_color</item>
     </style>
@@ -185,4 +186,5 @@
         <item name="android:padding">10dp</item>
     </style>
 
+    <color name="_main">#123456</color>
 </resources>

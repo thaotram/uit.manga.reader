@@ -1,19 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <data>
 
-</android.support.constraint.ConstraintLayout>
+        <variable
+            name="manga"
+            type="model.model.Manga"/>
+
+        <variable
+            name="state"
+            type="reader.manga.uit.activity.MainActivity.State"/>
+
+    </data>
+
+    <ui.Drawer
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:_isOpen="@={state.isOpenDrawer}">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ui.Col
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/_background">
+
+                <ui.FrameShadow
+                    style="@style/item_shadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="-5dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginRight="-5dp"
+                    app:_dy="0dp">
+
+                    <ui.Row style="@style/action_row">
+
+                        <ui.Button
+                            style="@style/button"
+                            android:layout_width="50dp"
+                            android:onClick="openDrawer"
+                            app:_icon=""/>
+
+                        <View style="@style/vr_half"/>
+
+                        <ui.Button
+                            style="@style/button"
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            app:_font="pacifico"
+                            app:_text="@string/app_name"
+                            app:_textAlign="center"/>
+
+                        <View style="@style/vr_half"/>
+
+                        <ui.Button
+                            style="@style/button"
+                            android:layout_width="50dp"
+                            app:_icon=""/>
+
+                    </ui.Row>
+                </ui.FrameShadow>
+            </ui.Col>
+
+        </FrameLayout>
+
+        <android.support.design.widget.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true">
+
+            <ui.Col
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/_background"
+                android:layerType="hardware">
+
+                <ui.Row
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/_background_action"
+                    android:layerType="hardware"
+                    android:padding="15dp">
+
+                </ui.Row>
+
+                <View style="@style/hr_full"/>
+
+                <ui.Button
+                    style="@style/sidebar_button"
+                    app:_icon=""
+                    app:_text="Manga List"/>
+
+                <ui.Button
+                    style="@style/sidebar_button"
+                    app:_icon=""
+                    app:_text="Save List"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <ui.Button
+                    style="@style/sidebar_button"
+                    app:_icon=""
+                    app:_text="Exit"/>
+            </ui.Col>
+        </android.support.design.widget.NavigationView>
+    </ui.Drawer>
+</layout>
