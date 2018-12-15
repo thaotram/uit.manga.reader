@@ -40,6 +40,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     implementation project(path: ':ui')
+    implementation project(path: ':model')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha3'
