@@ -2,11 +2,12 @@ package reader.manga.uit.model;
 
 import java.util.Date;
 
+import io.realm.RealmObject;
 import io.realm.RealmResults;
 import io.realm.annotations.LinkingObjects;
 import io.realm.annotations.PrimaryKey;
 
-public class Chapter {
+public class Chapter extends RealmObject {
     @PrimaryKey
     private int id;
     private String name;

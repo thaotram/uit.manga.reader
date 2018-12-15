@@ -18,7 +18,7 @@ public class Manga extends RealmObject {
     private RealmList<Genre> genres;
     private String authors;
     private String description;
-    private String image;
+    private String imageUrl;
 
     public int getId() {
         return id;
@@ -100,11 +100,11 @@ public class Manga extends RealmObject {
         this.description = description;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
