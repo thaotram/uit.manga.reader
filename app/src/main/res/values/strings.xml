@@ -6,4 +6,6 @@
 
     <string name="img_icon_ai">https://i.imgur.com/xEISBLV.png</string>
     <string name="username">username</string>
+    <string name="icon_tag"></string>
+    <string name="icon_description"></string>
 </resources>

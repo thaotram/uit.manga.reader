@@ -31,7 +31,89 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ui.Ripple
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="@{action::select}"
+                app:_radius="@dimen/radius"
+                app:_rippleColor="@color/_item_ripple"/>
+
+            <ui.Col
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                tools:ignore="RtlSymmetry">
+
+                <ui.Text
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:text="@{manga.name}"
+                    android:textSize="@dimen/item_manga_name_text_size"
+                    app:_font="bold"
+                    tools:text="manga.name"/>
+
+                <ui.Row
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_manga_genre_size"
+                    android:layout_marginTop="@dimen/item_manga_spacing">
+
+                    <ui.Text
+                        android:layout_width="@dimen/item_manga_genre_size"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/icon_tag"
+                        app:_font="icon"/>
+
+                    <ui.Text
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:ellipsize="end"
+                        android:gravity="start|center"
+                        android:maxLines="1"
+                        android:text="@{manga.genresString}"
+                        android:textSize="@dimen/item_manga_genre_text_size"
+                        tools:text="manga.genresString"/>
+                </ui.Row>
+
+                <ui.Row
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_manga_spacing"
+                    android:layout_weight="1">
+
+                    <ui.Text
+                        android:layout_width="@dimen/item_manga_genre_size"
+                        android:layout_height="@dimen/item_manga_genre_size"
+                        android:gravity="center"
+                        android:text="@string/icon_description"
+                        app:_font="icon"/>
+
+                    <ui.Text
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:gravity="start|center"
+                        android:maxLines="5"
+                        android:text="@{manga.description}"
+                        android:textSize="@dimen/item_manga_genre_text_size"
+                        tools:text="manga.description"/>
+                </ui.Row>
+            </ui.Col>
+        </ui.FrameShadow>
 
         <ui.FrameShadow
             style="@style/item_shadow"
@@ -40,7 +122,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:background="#FFFF"
-            tools:background="#6256">
+            tools:background="#2000">
 
             <ui.Image
                 android:layout_width="match_parent"
