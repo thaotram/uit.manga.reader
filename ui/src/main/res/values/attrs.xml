@@ -60,10 +60,7 @@
         <attr name="_autoPadding"/>
     </declare-styleable>
     <declare-styleable name="Square">
-        <attr name="_by" format="enum">
-            <enum name="width" value="0"/>
-            <enum name="height" value="1"/>
-        </attr>
+        <attr name="_by"/>
     </declare-styleable>
     <declare-styleable name="Circle">
         <attr name="_minSize" format="dimension"/>
@@ -75,8 +72,15 @@
     </declare-styleable>
     <declare-styleable name="Avatar">
         <attr name="_fbid" format="string"/>
-        <attr name="_innerSize" format="dimension"/>
-        <attr name="_outerSize" format="dimension"/>
+        <attr name="_innerSize"/>
+        <attr name="_outerSize"/>
+    </declare-styleable>
+    <declare-styleable name="Image">
+        <attr name="_source" format="string"/>
+        <attr name="_by" format="enum">
+            <enum name="width" value="0"/>
+            <enum name="height" value="1"/>
+        </attr>
     </declare-styleable>
     <declare-styleable name="List">
         <attr name="_stackFromEnd" format="boolean"/>
