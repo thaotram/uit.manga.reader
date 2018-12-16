@@ -9,9 +9,10 @@ import android.widget.FrameLayout;
 
 import ui.ui.R;
 
+import static ui.utils.Const.HEIGHT;
+import static ui.utils.Const.WIDTH;
+
 public class Square extends FrameLayout {
-    public static final int WIDTH = 0;
-    public static final int HEIGHT = 1;
     private int by;
 
     public Square(@NonNull Context context) {
