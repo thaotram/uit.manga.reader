@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="manga"
+            type="model.model.Manga"/>
+
+        <variable
+            name="action"
+            type="reader.manga.uit.adapter.MangaRecyclerViewAdapter.Action"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layerType="software"
+        tools:background="#ccc">
+
+        <ui.FrameShadow
+            style="@style/item_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <ui.FrameShadow
+            style="@style/item_shadow"
+            android:layout_width="110dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#FFFF"
+            tools:background="#6256">
+
+            <ui.Image
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:_source="@{manga.imageUrl}"/>
+        </ui.FrameShadow>
+    </FrameLayout>
+</layout>
