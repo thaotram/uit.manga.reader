@@ -10,6 +10,8 @@
     <dimen name="input_button_radius">3dp</dimen>
     <dimen name="element_height_with_shadow">60dp</dimen>
     <dimen name="shadow_size">5dp</dimen>
+    <dimen name="shadow_size_n">-5dp</dimen>
     <dimen name="bottom_text_size">18sp</dimen>
     <dimen name="radius">3dp</dimen>
+    <dimen name="line_size">1dp</dimen>
 </resources>

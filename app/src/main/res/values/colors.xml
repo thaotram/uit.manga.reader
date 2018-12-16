@@ -45,7 +45,7 @@
     <color name="_background_action">@color/__light</color><!-- Màu dành cho thanh hành động -->
     <color name="_background">@color/__light</color><!-- Màu nền chính -->
 
-    <color name="_background_item">@color/_dark_5</color>
+    <color name="_background_item">@android:color/white</color>
     <color name="_line_color">@color/__border_color</color>
 
     <color name="_item_title">@color/_light_5</color>

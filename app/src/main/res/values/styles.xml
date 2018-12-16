@@ -130,7 +130,7 @@
     </style>
 
     <style name="vr_half">
-        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_width">@dimen/line_size</item>
         <item name="android:layout_height">30dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:background">@color/_line_color</item>
@@ -142,7 +142,7 @@
 
     <style name="hr_full">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_height">@dimen/line_size</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:background">@color/_line_color</item>
     </style>
