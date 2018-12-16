@@ -7,6 +7,8 @@
 
     <data>
 
+        <import type="reader.manga.uit.adapter.MangaRecyclerViewAdapter"/>
+
         <variable
             name="manga"
             type="model.model.Manga"/>
@@ -20,55 +22,59 @@
     <ui.Drawer
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:_isOpen="@={state.isOpenDrawer}">
+        app:_isOpen="@={state.isOpenDrawer}"
+        tools:openDrawer="start">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ui.Col
+            <ui.List
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/_background">
+                android:layout_marginTop="50dp"
+                android:adapter="@{MangaRecyclerViewAdapter.getInstance()}"
+                android:background="@color/__light"
+                android:padding="5dp"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_manga"/>
 
-                <ui.FrameShadow
-                    style="@style/item_shadow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="-5dp"
-                    android:layout_marginTop="-5dp"
-                    android:layout_marginRight="-5dp"
-                    app:_dy="0dp">
+            <ui.FrameShadow
+                style="@style/item_shadow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/shadow_size_n"
+                android:layout_marginTop="@dimen/shadow_size_n"
+                android:layout_marginRight="@dimen/shadow_size_n"
+                app:_dy="0dp">
 
-                    <ui.Row style="@style/action_row">
+                <ui.Row style="@style/action_row">
 
-                        <ui.Button
-                            style="@style/button"
-                            android:layout_width="50dp"
-                            android:onClick="openDrawer"
-                            app:_icon=""/>
+                    <ui.Button
+                        style="@style/button"
+                        android:layout_width="50dp"
+                        android:onClick="openDrawer"
+                        app:_icon=""/>
 
-                        <View style="@style/vr_half"/>
+                    <View style="@style/vr_half"/>
 
-                        <ui.Button
-                            style="@style/button"
-                            android:layout_width="wrap_content"
-                            android:layout_weight="1"
-                            app:_font="pacifico"
-                            app:_text="@string/app_name"
-                            app:_textAlign="center"/>
+                    <ui.Button
+                        style="@style/button"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        app:_font="pacifico"
+                        app:_text="@string/app_name"
+                        app:_textAlign="center"/>
 
-                        <View style="@style/vr_half"/>
+                    <View style="@style/vr_half"/>
 
-                        <ui.Button
-                            style="@style/button"
-                            android:layout_width="50dp"
-                            app:_icon=""/>
+                    <ui.Button
+                        style="@style/button"
+                        android:layout_width="50dp"
+                        app:_icon=""/>
 
-                    </ui.Row>
-                </ui.FrameShadow>
-            </ui.Col>
-
+                </ui.Row>
+            </ui.FrameShadow>
         </FrameLayout>
 
         <android.support.design.widget.NavigationView
@@ -87,9 +93,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:background="@color/_background_action"
-                    android:layerType="hardware"
-                    android:padding="15dp">
+                    android:padding="20dp">
 
+                    <ui.Square
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="20dp"
+                        app:_by="height">
+
+                        <ui.Image
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:_by="height"
+                            app:_source="@string/img_icon_ai"/>
+                    </ui.Square>
+
+                    <ui.Text
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="start|center"
+                        android:text="@string/username"
+                        android:textSize="20sp"
+                        app:_font="pacifico"/>
                 </ui.Row>
 
                 <View style="@style/hr_full"/>
@@ -111,6 +136,7 @@
 
                 <ui.Button
                     style="@style/sidebar_button"
+                    android:onClick="exit"
                     app:_icon=""
                     app:_text="Exit"/>
             </ui.Col>
