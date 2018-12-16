@@ -1,8 +1,12 @@
 package model.model;
 
+import android.text.TextUtils;
+
 import org.parceler.Parcel;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
@@ -80,6 +84,14 @@ public class Manga extends RealmObject {
 
     public RealmList<Genre> getGenres() {
         return genres;
+    }
+
+    public String getGenresString() {
+        List<String> list = new ArrayList<>();
+        for (Genre genre : genres) {
+            list.add(genre.getName());
+        }
+        return TextUtils.join(", ", list);
     }
 
     public String getAuthors() {
