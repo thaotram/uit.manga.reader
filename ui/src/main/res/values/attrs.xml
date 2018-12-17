@@ -70,11 +70,6 @@
     <declare-styleable name="Drawer">
         <attr name="_isOpen" format="boolean"/>
     </declare-styleable>
-    <declare-styleable name="Avatar">
-        <attr name="_fbid" format="string"/>
-        <attr name="_innerSize"/>
-        <attr name="_outerSize"/>
-    </declare-styleable>
     <declare-styleable name="Image">
         <attr name="_source" format="string"/>
         <attr name="_by" format="enum">
