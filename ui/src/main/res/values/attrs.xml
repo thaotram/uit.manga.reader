@@ -85,7 +85,7 @@
         <attr name="_shadowSize"/>
         <attr name="_dx"/>
         <attr name="_dy"/>
-        <attr name="_shadowColor"/>
+        <attr name="_shadowColor" format="color"/>
         <attr name="_extendTop" format="boolean"/>
         <attr name="_extendLeft" format="boolean"/>
         <attr name="_extendRight" format="boolean"/>

@@ -8,7 +8,7 @@
     <color name="primary">#0000ff</color>
 
     <color name="__light">#f2f2f2</color><!-- Màu nền của ứng dụng -->
-    <color name="__body_color">#5a6570</color>
+    <color name="__body_color">#181e2a</color>
     <color name="__border_color">#dee2e6</color>
 
     <color name="input_line_color">#999</color>
@@ -41,8 +41,8 @@
     <color name="_text_color">@color/__body_color</color>
     <color name="_hint_color">@color/_light_2</color>
 
-    <color name="_background_status">@color/__light</color><!-- Màu của thanh trạng thái trên cùng -->
-    <color name="_background_action">@color/__light</color><!-- Màu dành cho thanh hành động -->
+    <color name="_background_status">@android:color/white</color><!-- Màu của thanh trạng thái trên cùng -->
+    <color name="_background_action">@android:color/white</color><!-- Màu dành cho thanh hành động -->
     <color name="_background">@color/__light</color><!-- Màu nền chính -->
 
     <color name="_background_item">@android:color/white</color>
