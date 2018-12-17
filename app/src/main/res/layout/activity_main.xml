@@ -22,6 +22,7 @@
     <ui.Drawer
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/__light"
         app:_isOpen="@={state.isOpenDrawer}"
         tools:openDrawer="start">
 
@@ -34,7 +35,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="50dp"
                 android:adapter="@{MangaRecyclerViewAdapter.getInstance()}"
-                android:background="@color/__light"
                 android:padding="5dp"
                 tools:itemCount="3"
                 tools:listitem="@layout/item_manga"/>
