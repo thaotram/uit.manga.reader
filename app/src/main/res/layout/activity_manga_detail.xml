@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MangaDetailActivity">
+
+    <data>
+
+        <variable
+            name="manga"
+            type="model.model.Manga"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/__light">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/action_row_height"
+            android:background="@color/__light">
+
+            <ui.Col
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/__light">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ui.FrameShadow
+                        style="@style/item_shadow"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginStart="@dimen/shadow_size_n"
+                        android:layout_marginTop="@dimen/shadow_size_n"
+                        android:layout_marginEnd="@dimen/shadow_size_n"
+                        android:background="@android:color/white"
+                        app:_dy="0dp"/>
+
+                    <ui.Col
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="155dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="75dp"
+                        tools:ignore="RtlSymmetry">
+
+                        <ui.Text
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:scrollHorizontally="true"
+                            android:text="@{manga.name}"
+                            android:textSize="@dimen/item_manga_name_text_size"
+                            app:_font="bold"
+                            tools:text="manga.name"/>
+
+                    </ui.Col>
+
+                    <ui.FrameShadow
+                        style="@style/item_shadow"
+                        android:layout_width="130dp"
+                        android:layout_height="190dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp">
+
+                        <ui.Image
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:_source="@{manga.imageUrl}"
+                            tools:background="#2000"/>
+                    </ui.FrameShadow>
+                </FrameLayout>
+
+            </ui.Col>
+        </android.support.v4.widget.NestedScrollView>
+
+        <ui.FrameShadow
+            style="@style/item_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/shadow_size_n"
+            android:layout_marginTop="@dimen/shadow_size_n"
+            android:layout_marginRight="@dimen/shadow_size_n"
+            app:_dy="0dp"
+            app:_shadowColor="@android:color/transparent">
+
+            <ui.Row style="@style/action_row">
+
+                <ui.Button
+                    style="@style/button"
+                    android:layout_width="50dp"
+                    android:onClick="back"
+                    app:_icon=""/>
+
+                <View style="@style/vr_half"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <ui.Button
+                    style="@style/button"
+                    android:layout_width="50dp"
+                    app:_icon=""/>
+
+                <ui.Button
+                    style="@style/button"
+                    android:layout_width="50dp"
+                    app:_icon=""/>
+
+                <ui.Button
+                    style="@style/button"
+                    android:layout_width="50dp"
+                    app:_icon=""/>
+
+            </ui.Row>
+        </ui.FrameShadow>
+
+        <View
+            style="@style/hr_full"
+            android:layout_gravity="top"
+            android:layout_marginTop="50dp"/>
+    </FrameLayout>
+</layout>

@@ -73,6 +73,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="@string/icon_tag"
+                        android:textSize="@dimen/item_manga_genre_text_size"
                         app:_font="icon"/>
 
                     <ui.Text
@@ -98,6 +99,7 @@
                         android:layout_height="@dimen/item_manga_genre_size"
                         android:gravity="center"
                         android:text="@string/icon_description"
+                        android:textSize="@dimen/item_manga_genre_text_size"
                         app:_font="icon"/>
 
                     <ui.Text
@@ -107,7 +109,7 @@
                         android:layout_weight="1"
                         android:ellipsize="end"
                         android:gravity="start|center"
-                        android:maxLines="5"
+                        android:maxLines="4"
                         android:text="@{manga.description}"
                         android:textSize="@dimen/item_manga_genre_text_size"
                         tools:text="manga.description"/>

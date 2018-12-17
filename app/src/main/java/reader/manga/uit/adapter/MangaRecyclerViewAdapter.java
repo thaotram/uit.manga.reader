@@ -1,5 +1,6 @@
 package reader.manga.uit.adapter;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,8 @@ import io.realm.Realm;
 import io.realm.RealmRecyclerViewAdapter;
 import model.model.Manga;
 import reader.manga.uit.R;
+import reader.manga.uit.activity.AppActivity;
+import reader.manga.uit.activity.MangaDetailActivity;
 import reader.manga.uit.databinding.ItemMangaBinding;
 
 public class MangaRecyclerViewAdapter extends RealmRecyclerViewAdapter<Manga, MangaRecyclerViewAdapter.ViewHolder> {
@@ -67,10 +70,12 @@ public class MangaRecyclerViewAdapter extends RealmRecyclerViewAdapter<Manga, Ma
         }
 
         public void select(View view) {
-//            Manga.setCurrentWallet(manga);
-//            Activity activity = (Activity) view.getContext();
-//            activity.setResult(Activity.RESULT_OK);
-//            activity.finish();
+            AppActivity activity = (AppActivity) view.getContext();
+
+            final Intent intent = new Intent(activity, MangaDetailActivity.class);
+            intent.putExtra(MangaDetailActivity.MANGA_ID, manga.getId());
+
+            activity.startActivity(intent);
         }
     }
 }

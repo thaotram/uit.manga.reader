@@ -70,11 +70,6 @@
     <declare-styleable name="Drawer">
         <attr name="_isOpen" format="boolean"/>
     </declare-styleable>
-    <declare-styleable name="Avatar">
-        <attr name="_fbid" format="string"/>
-        <attr name="_innerSize"/>
-        <attr name="_outerSize"/>
-    </declare-styleable>
     <declare-styleable name="Image">
         <attr name="_source" format="string"/>
         <attr name="_by" format="enum">
@@ -90,7 +85,7 @@
         <attr name="_shadowSize"/>
         <attr name="_dx"/>
         <attr name="_dy"/>
-        <attr name="_shadowColor"/>
+        <attr name="_shadowColor" format="color"/>
         <attr name="_extendTop" format="boolean"/>
         <attr name="_extendLeft" format="boolean"/>
         <attr name="_extendRight" format="boolean"/>
@@ -103,5 +98,9 @@
         <attr name="_radiusLeft" format="boolean"/>
         <attr name="_radiusRight" format="boolean"/>
         <attr name="_radiusBottom" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="Scroll">
+        <attr name="_scrollX" format="integer"/>
+        <attr name="_scrollY" format="integer"/>
     </declare-styleable>
 </resources>
