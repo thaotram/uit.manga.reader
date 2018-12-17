@@ -99,4 +99,8 @@
         <attr name="_radiusRight" format="boolean"/>
         <attr name="_radiusBottom" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="Scroll">
+        <attr name="_scrollX" format="integer"/>
+        <attr name="_scrollY" format="integer"/>
+    </declare-styleable>
 </resources>
