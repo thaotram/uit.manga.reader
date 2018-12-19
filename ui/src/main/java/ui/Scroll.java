@@ -10,8 +10,8 @@ import android.util.AttributeSet;
 import ui.ui.R;
 
 public class Scroll extends NestedScrollView {
-    private int scrollX;
-    private int scrollY;
+    // private int scrollX;
+    // private int scrollY;
 
     public Scroll(@NonNull Context context) {
         super(context);
@@ -42,23 +42,23 @@ public class Scroll extends NestedScrollView {
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.Scroll);
 
-        scrollX = typedArray.getInt(R.styleable.Scroll__scrollX, 0);
-        scrollY = typedArray.getInt(R.styleable.Scroll__scrollY, 0);
+        // scrollX = typedArray.getInt(R.styleable.Scroll__scrollX, 0);
+        // scrollY = typedArray.getInt(R.styleable.Scroll__scrollY, 0);
 
         typedArray.recycle();
     }
 
-//    @BindingAdapter("_scrollX")
-//    public void set_scrollX(int scrollX) {
-//        this.scrollX = scrollX;
-//    }
-//
-//    @BindingAdapter("_scrollY")
-//    public void set_scrollY(int scrollY) {
-//        this.scrollY = scrollY;
-//    }
-//    @InverseBindingAdapter(attribute = "_isOpen")
-//    public int getScrollX() {
-//        return scrollX;
-//    }
+    // @BindingAdapter("_scrollX")
+    // public void set_scrollX(int scrollX) {
+    //     this.scrollX = scrollX;
+    // }
+    //
+    // @BindingAdapter("_scrollY")
+    // public void set_scrollY(int scrollY) {
+    //     this.scrollY = scrollY;
+    // }
+    // @InverseBindingAdapter(attribute = "_isOpen")
+    // public int getScrollX() {
+    //     return scrollX;
+    // }
 }
