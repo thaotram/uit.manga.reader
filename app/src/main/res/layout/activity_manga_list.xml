@@ -30,14 +30,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ui.List
+            <ui.Swipe
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
-                android:adapter="@{MangaRecyclerViewAdapter.getInstance()}"
-                android:padding="5dp"
-                tools:itemCount="3"
-                tools:listitem="@layout/item_manga"/>
+                app:_onRefresh="onRefresh">
+
+                <ui.List
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="50dp"
+                    android:adapter="@{MangaRecyclerViewAdapter.getInstance()}"
+                    android:padding="5dp"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_manga"/>
+            </ui.Swipe>
 
             <ui.FrameShadow
                 style="@style/item_shadow"

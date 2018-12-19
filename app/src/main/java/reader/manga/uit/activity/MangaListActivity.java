@@ -10,6 +10,7 @@ import java.util.Observable;
 import reader.manga.uit.R;
 import reader.manga.uit.apollo.FetchData;
 import reader.manga.uit.databinding.ActivityMangaListBinding;
+import ui.Swipe;
 
 public class MangaListActivity extends AppActivity {
     public static final int LAYOUT = R.layout.activity_manga_list;
@@ -40,6 +41,11 @@ public class MangaListActivity extends AppActivity {
 
     public void exit(View view) {
         finish();
+    }
+
+    @SuppressWarnings("unused")
+    public void onRefresh(Swipe swipe) {
+        FetchData.FetchMangas(this, realm, () -> swipe.setRefreshing(false));
     }
 
     public class State extends Observable {

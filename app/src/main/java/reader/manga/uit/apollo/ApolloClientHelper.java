@@ -45,7 +45,7 @@ public class ApolloClientHelper {
         });
     }
 
-    private static <D extends Query.Data, T, V extends Query.Variables>
+    static <D extends Query.Data, T, V extends Query.Variables>
     void Query(AppCompatActivity activity,
                Query<D, T, V> build,
                OnResponse<T> onResponse,

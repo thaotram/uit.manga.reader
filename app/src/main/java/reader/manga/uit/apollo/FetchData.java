@@ -15,6 +15,10 @@ import reader.manga.uit.utils.Callback;
 
 public class FetchData {
     public static void FetchMangas(AppActivity activity, Realm realm) {
+        FetchMangas(activity, realm, null);
+    }
+
+    public static void FetchMangas(AppActivity activity, Realm realm, Callback callback) {
         ApolloClientHelper.Query(
                 activity,
                 MangasQuery.builder().build(),
@@ -42,7 +46,11 @@ public class FetchData {
 
                         r.copyToRealmOrUpdate(m);
                     });
-                })
+                    if (callback != null) callback.call();
+                }),
+                e -> {
+                    if (callback != null) callback.call();
+                }
         );
     }
 
@@ -97,7 +105,9 @@ public class FetchData {
 
                         r.copyToRealmOrUpdate(m);
                     });
-
+                    if (callback != null) callback.call();
+                },
+                e -> {
                     if (callback != null) callback.call();
                 }
         );
