@@ -12,7 +12,6 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.RequestCreator;
 
 import ui.ui.R;
 
@@ -20,10 +19,9 @@ import static ui.utils.Const.HEIGHT;
 import static ui.utils.Const.WIDTH;
 
 public class Image extends android.support.v7.widget.AppCompatImageView {
-    private final Picasso picasso = Picasso.with(getContext());
     private String source;
     private int by;
-    private RequestCreator requestCreatorLoad;
+    private Uri src;
 
     public Image(Context context) {
         super(context);
@@ -44,10 +42,7 @@ public class Image extends android.support.v7.widget.AppCompatImageView {
 
     private void initializeImage() {
         if (source == null) return;
-        Uri src = Uri.parse(source);
-
-        picasso.setIndicatorsEnabled(true);
-        requestCreatorLoad = picasso.load(src);
+        src = Uri.parse(source);
     }
 
     public Image(Context context, @Nullable AttributeSet attrs) {
@@ -76,19 +71,22 @@ public class Image extends android.support.v7.widget.AppCompatImageView {
         final int width = MeasureSpec.getSize(widthMeasureSpec);
         final int height = MeasureSpec.getSize(heightMeasureSpec);
 
+        final Picasso picasso = Picasso.with(getContext());
+        picasso.setIndicatorsEnabled(true);
+
         switch (by) {
             case WIDTH:
-                requestCreatorLoad
+                picasso.load(src)
                         .resize(width, 0)
                         .into(this);
                 break;
             case HEIGHT:
-                requestCreatorLoad
+                picasso.load(src)
                         .resize(0, height)
                         .into(this);
                 break;
             default:
-                requestCreatorLoad
+                picasso.load(src)
                         .resize(width, height)
                         .centerCrop()
                         .into(this);
