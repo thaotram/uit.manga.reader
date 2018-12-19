@@ -4,12 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.ApolloClient;
+import com.apollographql.apollo.api.Query;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 
 import org.jetbrains.annotations.NotNull;
 
-import apollographql.apollo.MangasQuery;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import reader.manga.uit.R;
@@ -36,17 +36,26 @@ public class ApolloClientHelper {
                 .build();
     }
 
-    public static void Query(AppCompatActivity activity, MangasQuery build, OnResponse onResponse) {
-        Query(activity, build, onResponse, error -> {
+    static <D extends Query.Data, T, V extends Query.Variables>
+    void Query(AppCompatActivity activity,
+               Query<D, T, V> build,
+               OnResponse<T> __onResponse__
+    ) {
+        Query(activity, build, __onResponse__, error -> {
         });
     }
 
-    public static void Query(AppCompatActivity activity, MangasQuery build, OnResponse onResponse, OnFailure onFailure) {
+    private static <D extends Query.Data, T, V extends Query.Variables>
+    void Query(AppCompatActivity activity,
+               Query<D, T, V> build,
+               OnResponse<T> onResponse,
+               OnFailure onFailure
+    ) {
         INSTANCE
                 .query(build)
-                .enqueue(new ApolloCall.Callback<MangasQuery.Data>() {
+                .enqueue(new ApolloCall.Callback<T>() {
                     @Override
-                    public void onResponse(@NotNull Response<MangasQuery.Data> response) {
+                    public void onResponse(@NotNull Response<T> response) {
                         activity.runOnUiThread(() -> onResponse.call(response));
                     }
 
@@ -57,12 +66,8 @@ public class ApolloClientHelper {
                 });
     }
 
-    public static void Query() {
-
-    }
-
-    public interface OnResponse {
-        void call(@NotNull Response<MangasQuery.Data> response);
+    public interface OnResponse<T> {
+        void call(@NotNull Response<T> response);
     }
 
     public interface OnFailure {
