@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="reader.manga.uit.activity.ChapterDetailActivity">
+
+    <data>
+
+        <import type="reader.manga.uit.adapter.ImageRecyclerViewAdapter"/>
+
+        <variable
+            name="chapter"
+            type="model.model.Chapter"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/__light">
+
+        <ui.List
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:adapter="@{ImageRecyclerViewAdapter.getInstance(chapter)}"
+            tools:listitem="@layout/item_image">
+
+        </ui.List>
+
+        <ui.FrameShadow
+            style="@style/item_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/shadow_size_n"
+            android:layout_marginTop="@dimen/shadow_size_n"
+            android:layout_marginRight="@dimen/shadow_size_n"
+            app:_dy="0dp">
+
+            <ui.Row style="@style/action_row">
+
+                <ui.Button
+                    style="@style/button"
+                    android:layout_width="50dp"
+                    android:onClick="back"
+                    app:_icon=""/>
+
+                <View style="@style/vr_half"/>
+
+                <ui.Text
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="start|center"
+                    android:paddingStart="10dp"
+                    android:text="@{chapter.name}"
+                    app:_autoSize="true"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="{chapter.name}"/>
+
+                <ui.Button
+                    style="@style/button"
+                    android:layout_width="50dp"
+                    app:_icon=""/>
+
+                <ui.Button
+                    style="@style/button"
+                    android:layout_width="50dp"
+                    app:_icon=""/>
+
+            </ui.Row>
+        </ui.FrameShadow>
+    </FrameLayout>
+</layout>

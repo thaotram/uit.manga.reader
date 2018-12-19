@@ -1,5 +1,6 @@
 package reader.manga.uit.adapter;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,11 +12,13 @@ import io.realm.RealmRecyclerViewAdapter;
 import model.model.Chapter;
 import model.model.Manga;
 import reader.manga.uit.R;
+import reader.manga.uit.activity.AppActivity;
+import reader.manga.uit.activity.ChapterDetailActivity;
 import reader.manga.uit.databinding.ItemChapterBinding;
 
 public class ChapterRecyclerViewAdapter extends RealmRecyclerViewAdapter<Chapter, ChapterRecyclerViewAdapter.ViewHolder> {
     public ChapterRecyclerViewAdapter(Manga manga) {
-        super(manga.getChapters(), true);
+        super(manga.getChapters().sort("name"), true);
     }
 
     public static ChapterRecyclerViewAdapter getInstance(Manga manga) {
@@ -66,12 +69,12 @@ public class ChapterRecyclerViewAdapter extends RealmRecyclerViewAdapter<Chapter
         }
 
         public void select(View view) {
-//            AppActivity activity = (AppActivity) view.getContext();
-//
-//            final Intent intent = new Intent(activity, MangaDetailActivity.class);
-//            intent.putExtra(MangaDetailActivity.MANGA_ID, chapter.getId());
-//
-//            activity.startActivity(intent);
+            AppActivity activity = (AppActivity) view.getContext();
+
+            final Intent intent = new Intent(activity, ChapterDetailActivity.class);
+            intent.putExtra(ChapterDetailActivity.CHAPTER_ID, chapter.getId());
+
+            activity.startActivity(intent);
         }
     }
 }

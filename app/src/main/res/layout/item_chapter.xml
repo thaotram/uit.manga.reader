@@ -27,6 +27,7 @@
         <ui.Ripple
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:onClick="@{state::select}"
             app:_rippleColor="@color/_item_ripple"/>
 
         <ui.Text
