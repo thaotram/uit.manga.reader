@@ -100,4 +100,7 @@
         <attr name="_scrollX" format="integer"/>
         <attr name="_scrollY" format="integer"/>
     </declare-styleable>
+    <declare-styleable name="Swipe">
+        <attr name="_onRefresh" format="string"/>
+    </declare-styleable>
 </resources>

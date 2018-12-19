@@ -73,8 +73,8 @@ public class Button extends LinearLayoutCompat implements ShadowView {
 
     private void initializeAttrs(@NonNull Context context, @Nullable AttributeSet attrs) {
         TypedArray typedArray;
-
         typedArray = context.obtainStyledAttributes(attrs, R.styleable.Button);
+
         icon = (String) typedArray.getText(R.styleable.Button__icon);
         text = (String) typedArray.getText(R.styleable.Button__text);
         textAlign = ALIGN.get(typedArray.getInt(R.styleable.Button__textAlign, CENTER)) | Gravity.CENTER_VERTICAL;
