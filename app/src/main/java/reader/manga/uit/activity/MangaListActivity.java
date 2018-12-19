@@ -9,10 +9,11 @@ import java.util.Observable;
 
 import reader.manga.uit.R;
 import reader.manga.uit.apollo.FetchData;
-import reader.manga.uit.databinding.ActivityMainBinding;
+import reader.manga.uit.databinding.ActivityMangaListBinding;
+import ui.Swipe;
 
-public class MainActivity extends AppActivity {
-    public static final int LAYOUT = R.layout.activity_main;
+public class MangaListActivity extends AppActivity {
+    public static final int LAYOUT = R.layout.activity_manga_list;
 
     private State state = new State();
 
@@ -26,11 +27,11 @@ public class MainActivity extends AppActivity {
     }
 
     private void initializeData() {
-        FetchData.FetchManga(this, realm);
+        FetchData.FetchMangas(this, realm);
     }
 
     private void initializeDataBinding() {
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, LAYOUT);
+        ActivityMangaListBinding binding = DataBindingUtil.setContentView(this, LAYOUT);
         binding.setState(state);
     }
 
@@ -40,6 +41,11 @@ public class MainActivity extends AppActivity {
 
     public void exit(View view) {
         finish();
+    }
+
+    @SuppressWarnings("unused")
+    public void onRefresh(Swipe swipe) {
+        FetchData.FetchMangas(this, realm, () -> swipe.setRefreshing(false));
     }
 
     public class State extends Observable {

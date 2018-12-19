@@ -7,9 +7,14 @@
 
     <data>
 
+        <import type="reader.manga.uit.adapter.ChapterRecyclerViewAdapter"/>
+
+        <import type="ui.utils.StringHelper"/>
+
         <variable
             name="manga"
             type="model.model.Manga"/>
+
     </data>
 
     <FrameLayout
@@ -17,16 +22,18 @@
         android:layout_height="match_parent"
         android:background="@color/__light">
 
-        <android.support.v4.widget.NestedScrollView
+        <ui.Swipe
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/action_row_height"
-            android:background="@color/__light">
+            android:background="@color/__light"
+            app:_onRefresh="onRefresh">
 
             <ui.Col
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/__light">
+                android:background="@color/__light"
+                android:paddingBottom="@dimen/manga_detail_margin">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -56,11 +63,24 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="2dp"
                             android:ellipsize="end"
+                            android:fontFeatureSettings=""
                             android:maxLines="2"
                             android:scrollHorizontally="true"
                             android:text="@{manga.name}"
                             android:textSize="@dimen/item_manga_name_text_size"
-                            app:_font="bold"
+                            android:textStyle="bold"
+                            app:_font="none"
+                            tools:text="manga.name"/>
+
+                        <ui.Text
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:scrollHorizontally="true"
+                            android:text="@{manga.authors}"
+                            android:textSize="@dimen/item_manga_info_text_size"
                             tools:text="manga.name"/>
 
                     </ui.Col>
@@ -81,8 +101,95 @@
                     </ui.FrameShadow>
                 </FrameLayout>
 
+                <ui.Row
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="5dp">
+
+                    <ui.Text
+                        style="@style/row_item_icon"
+                        android:text="@string/icon_information"/>
+
+                    <ui.Text
+                        style="@style/row_item_text"
+                        android:text="@string/information"/>
+
+                </ui.Row>
+
+                <ui.FrameShadow
+                    style="@style/item_shadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/manga_detail_margin"
+                    android:layout_marginEnd="@dimen/manga_detail_margin"
+                    android:layout_marginBottom="@dimen/manga_detail_margin">
+
+                    <ui.Col
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp">
+
+                        <ui.Text
+                            style="@style/item_paragraph"
+                            android:text="@{StringHelper.getBoldString(@string/authors, manga.authors)}"
+                            tools:text="Authors: content"/>
+
+                        <ui.Text
+                            style="@style/item_paragraph"
+                            android:text="@{StringHelper.getBoldString(@string/genres, manga.genresString)}"
+                            tools:text="Genres: content"/>
+
+                        <ui.Text
+                            style="@style/item_paragraph"
+                            android:text="@{StringHelper.getBoldString(@string/description, manga.description)}"
+                            tools:height="60dp"
+                            tools:text="Description: content"/>
+
+                    </ui.Col>
+
+                </ui.FrameShadow>
+
+                <ui.Row
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="5dp">
+
+                    <ui.Text
+                        style="@style/row_item_icon"
+                        android:text="@string/icon_chapter"/>
+
+                    <ui.Text
+                        style="@style/row_item_text"
+                        android:text="@string/chapters"/>
+
+                </ui.Row>
+
+                <ui.FrameShadow
+                    style="@style/item_shadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/manga_detail_margin"
+                    android:layout_marginEnd="@dimen/manga_detail_margin">
+
+                    <ui.List
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adapter="@{ChapterRecyclerViewAdapter.getInstance(manga)}"
+                        android:padding="0dp"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_chapter">
+
+                    </ui.List>
+
+                </ui.FrameShadow>
+
             </ui.Col>
-        </android.support.v4.widget.NestedScrollView>
+
+        </ui.Swipe>
 
         <ui.FrameShadow
             style="@style/item_shadow"

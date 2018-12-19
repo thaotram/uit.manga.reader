@@ -8,4 +8,11 @@
     <string name="username">username</string>
     <string name="icon_tag"></string>
     <string name="icon_description"></string>
+    <string name="icon_information"></string>
+    <string name="information">Information</string>
+    <string name="description">Description</string>
+    <string name="authors">Authors</string>
+    <string name="genres">Genres</string>
+    <string name="icon_chapter"></string>
+    <string name="chapters">Chapters</string>
 </resources>

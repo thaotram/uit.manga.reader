@@ -8,7 +8,7 @@
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowActivityTransitions">true</item>
 
-        <item name="android:colorPrimaryDark">@color/_background_status</item>
+        <item name="android:colorPrimaryDark">@color/__background_status</item>
         <item name="android:colorPrimary">@color/_main</item>
         <item name="android:colorAccent">#ffcc66</item>
         <item name="android:textColor">@color/__body_color</item>
@@ -42,21 +42,20 @@
 
     <style name="bottom_bar" parent="tittle_bar">
         <item name="_extendBottom">false</item>
-        <item name="_shadowColor">@color/white_shadow</item>
-        <item name="android:background">@color/white</item>
+        <item name="_shadowColor">@color/__bottom_bar_white_shadow</item>
+        <item name="android:background">@android:color/white</item>
         <item name="android:layout_gravity">bottom</item>
     </style>
 
     <style name="top_bar" parent="tittle_bar">
         <item name="_extendTop">false</item>
         <item name="_shadowColor">@color/primary_shadow</item>
-        <item name="android:background">@color/_background</item>
+        <item name="android:background">@color/__background</item>
         <item name="android:layout_gravity">top</item>
     </style>
 
     <style name="button">
         <item name="android:layout_height">match_parent</item>
-        <item name="_font">regular</item>
         <item name="_fontSize">small</item>
         <item name="_foreground">@color/_text_color</item>
         <item name="_rippleColor">@color/_item_ripple</item>
@@ -80,14 +79,23 @@
         <item name="android:scrollbars">vertical</item>
     </style>
 
-    <style name="text">
-        <item name="android:layout_width">wrap_content</item>
+    <style name="item_title" parent="item_paragraph">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="item_paragraph">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_marginBottom">3dp</item>
+    </style>
+
+    <style name="row_item_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center_vertical|start</item>
-        <item name="android:textColor">@color/_text_color</item>
-        <item name="_autoPadding">true</item>
-        <item name="_autoSize">true</item>
-        <item name="_font">regular</item>
     </style>
 
     <style name="input_name">
@@ -100,7 +108,7 @@
         <item name="android:textSize">@dimen/input_name_size</item>
         <item name="_autoPadding">false</item>
         <item name="_autoSize">false</item>
-        <item name="_font">bold</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="input_text">
@@ -115,12 +123,12 @@
         <item name="_focusColor">@color/_dark_1</item>
     </style>
 
-    <style name="icon">
-        <item name="android:gravity">center_vertical|start</item>
-        <item name="android:textColor">@color/_text_color</item>
-        <item name="android:textSize">22sp</item>
-        <item name="android:background">@color/_dark_1</item>
-        <item name="_autoPadding">true</item>
+    <style name="row_item_icon">
+        <item name="android:layout_marginStart">3dp</item>
+        <item name="android:layout_marginEnd">3dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
         <item name="_font">icon</item>
     </style>
 
@@ -128,7 +136,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:textColor">@color/_green</item>
         <item name="android:textSize">@dimen/bottom_text_size</item>
-        <item name="_font">bold</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="vr_half">
@@ -151,7 +159,7 @@
 
     <style name="item_shadow">
         <item name="android:background">@color/_background_item</item>
-        <item name="_dy">1dp</item>
+        <item name="_dy">0dp</item>
         <item name="_radius">@dimen/radius</item>
         <item name="_shadowColor">#20000000</item>
         <item name="_shadowSize">@dimen/shadow_size</item>
@@ -160,13 +168,13 @@
     <style name="action_row">
         <item name="android:layout_height">@dimen/action_row_height</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:background">@color/_background_action</item>
+        <item name="android:background">@color/__background_action</item>
     </style>
 
     <style name="root_col">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/_background</item>
+        <item name="android:background">@color/__background</item>
         <item name="android:fitsSystemWindows">false</item>
     </style>
 
@@ -184,7 +192,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">@color/_background</item>
+        <item name="android:background">@color/__background</item>
         <item name="android:padding">10dp</item>
     </style>
 

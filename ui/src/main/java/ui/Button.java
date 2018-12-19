@@ -27,6 +27,7 @@ import static ui.utils.Const.CENTER;
 import static ui.utils.Const.FONT_SIZEs;
 import static ui.utils.Const.FONTs;
 import static ui.utils.Const.ICON;
+import static ui.utils.Const.NONE;
 import static ui.utils.Const.RADIUS_ICON;
 import static ui.utils.Const.RADIUS_NONE;
 import static ui.utils.Const.RADIUS_TEXT;
@@ -72,8 +73,8 @@ public class Button extends LinearLayoutCompat implements ShadowView {
 
     private void initializeAttrs(@NonNull Context context, @Nullable AttributeSet attrs) {
         TypedArray typedArray;
-
         typedArray = context.obtainStyledAttributes(attrs, R.styleable.Button);
+
         icon = (String) typedArray.getText(R.styleable.Button__icon);
         text = (String) typedArray.getText(R.styleable.Button__text);
         textAlign = ALIGN.get(typedArray.getInt(R.styleable.Button__textAlign, CENTER)) | Gravity.CENTER_VERTICAL;
@@ -85,7 +86,7 @@ public class Button extends LinearLayoutCompat implements ShadowView {
 
         textPaddingLeft = typedArray.getBoolean(R.styleable.Button__textPaddingLeft, true);
         childRadius = typedArray.getInt(R.styleable.Button__childRadius, RADIUS_NONE);
-        font = FONTs.get(typedArray.getInt(R.styleable.Button__font, 2));
+        font = FONTs.get(typedArray.getInt(R.styleable.Button__font, 0));
         fontSize = FONT_SIZEs.get(typedArray.getInt(R.styleable.Button__fontSize, 0));
 
         radius = MeasureSpec.getSize((int) typedArray.getDimension(R.styleable.Button__radius, 0));
@@ -140,15 +141,17 @@ public class Button extends LinearLayoutCompat implements ShadowView {
                 addView(textView);
             }
             textView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+            if (!font.equals(NONE)) {
+                textView.setTypeface(Typeface.createFromAsset(context.getAssets(), font));
+                textView.setIncludeFontPadding(false);
+            }
             textView.setText(text);
             textView.setSingleLine(true);
-            textView.setTypeface(Typeface.createFromAsset(context.getAssets(), font));
             textView.setGravity(textAlign);
             textView.setLayoutParams(new LinearLayoutCompat.LayoutParams(
                     LayoutParams.WRAP_CONTENT,
                     LayoutParams.MATCH_PARENT, 1
             ));
-            textView.setIncludeFontPadding(false);
             textView.setTextColor(foreground);
             textView.setBackgroundDrawable(Calc.getPaintDrawable(backgroundText, childRadius == RADIUS_TEXT ? radius : 0, radius));
         } else if (textView != null) {

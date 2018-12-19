@@ -34,7 +34,7 @@ public class Text extends AppCompatTextView {
         TypedArray typedArray;
         typedArray = context.obtainStyledAttributes(attrs, R.styleable.Text);
 
-        font = FONTs.get(typedArray.getInt(R.styleable.Text__font, 2));
+        font = FONTs.get(typedArray.getInt(R.styleable.Text__font, 0));
         autoSize = typedArray.getBoolean(R.styleable.Text__autoSize, false);
         autoPadding = typedArray.getBoolean(R.styleable.Text__autoPadding, false);
 

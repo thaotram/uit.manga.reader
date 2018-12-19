@@ -7,7 +7,9 @@ import android.view.View;
 
 import model.model.Manga;
 import reader.manga.uit.R;
+import reader.manga.uit.apollo.FetchData;
 import reader.manga.uit.databinding.ActivityMangaDetailBinding;
+import ui.Swipe;
 
 public class MangaDetailActivity extends AppActivity {
     public static final int LAYOUT = R.layout.activity_manga_detail;
@@ -27,6 +29,11 @@ public class MangaDetailActivity extends AppActivity {
         int mangaId = intent.getIntExtra(MANGA_ID, -1);
         if (mangaId == -1) finish();
         manga = realm.where(Manga.class).equalTo("id", mangaId).findFirst();
+        if (manga == null) {
+            finish();
+            return;
+        }
+        FetchData.FetchManga(this, realm, manga.getId());
     }
 
     private void initializeDataBinding() {
@@ -36,5 +43,10 @@ public class MangaDetailActivity extends AppActivity {
 
     public void back(View view) {
         finish();
+    }
+
+    @SuppressWarnings("unused")
+    public void onRefresh(Swipe swipe) {
+        FetchData.FetchManga(this, realm, manga.getId(), () -> swipe.setRefreshing(false));
     }
 }

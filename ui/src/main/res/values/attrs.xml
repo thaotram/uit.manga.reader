@@ -50,11 +50,8 @@
     <declare-styleable name="Text">
         <attr name="_font" format="enum">
             <enum name="none" value="0"/>
-            <enum name="light" value="1"/>
-            <enum name="regular" value="2"/>
-            <enum name="bold" value="3"/>
-            <enum name="icon" value="4"/>
-            <enum name="pacifico" value="5"/>
+            <enum name="icon" value="1"/>
+            <enum name="pacifico" value="2"/>
         </attr>
         <attr name="_autoSize"/>
         <attr name="_autoPadding"/>
@@ -102,5 +99,8 @@
     <declare-styleable name="Scroll">
         <attr name="_scrollX" format="integer"/>
         <attr name="_scrollY" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="Swipe">
+        <attr name="_onRefresh" format="string"/>
     </declare-styleable>
 </resources>

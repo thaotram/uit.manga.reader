@@ -19,4 +19,6 @@
     <dimen name="item_manga_genre_size">18dp</dimen>
     <dimen name="item_manga_spacing">3dp</dimen>
     <dimen name="item_manga_name_text_size">18sp</dimen>
+    <dimen name="item_manga_info_text_size">15sp</dimen>
+    <dimen name="manga_detail_margin">15dp</dimen>
 </resources>

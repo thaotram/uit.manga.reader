@@ -60,7 +60,7 @@
                     android:scrollHorizontally="true"
                     android:text="@{manga.name}"
                     android:textSize="@dimen/item_manga_name_text_size"
-                    app:_font="bold"
+                    android:textStyle="bold"
                     tools:text="manga.name"/>
 
                 <ui.Row
