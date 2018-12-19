@@ -185,9 +185,7 @@
                             android:adapter="@{ChapterRecyclerViewAdapter.getInstance(manga)}"
                             android:padding="0dp"
                             tools:itemCount="3"
-                            tools:listitem="@layout/item_chapter">
-
-                        </ui.List>
+                            tools:listitem="@layout/item_chapter"/>
 
                     </ui.FrameShadow>
 
@@ -236,7 +234,6 @@
                     style="@style/button"
                     android:layout_width="50dp"
                     app:_icon=""/>
-
             </ui.Row>
         </ui.FrameShadow>
 

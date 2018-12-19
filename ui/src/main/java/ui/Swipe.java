@@ -2,8 +2,6 @@ package ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.databinding.BindingMethod;
-import android.databinding.BindingMethods;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -15,9 +13,6 @@ import java.text.MessageFormat;
 
 import ui.ui.R;
 
-@BindingMethods(
-        @BindingMethod(type = Swipe.class, attribute = "onRefresh", method = "setOnRefreshListener")
-)
 public class Swipe extends SwipeRefreshLayout {
     private Method handler;
     private String onRefresh;
@@ -42,6 +37,8 @@ public class Swipe extends SwipeRefreshLayout {
     }
 
     private void initializeHandle() {
+        if (onRefresh == null) return;
+
         try {
             handler = getContext().getClass().getMethod(onRefresh, Swipe.class);
         } catch (NoSuchMethodException e) {
@@ -52,7 +49,7 @@ public class Swipe extends SwipeRefreshLayout {
                     getContext().getClass(),
                     id == NO_ID ? "" : "with id " + getContext().getResources().getResourceEntryName(id)
             );
-            throw new IllegalStateException(exception);
+            if (!isInEditMode()) throw new IllegalStateException(exception);
         }
 
         this.setOnRefreshListener(() -> {
