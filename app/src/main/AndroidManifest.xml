@@ -7,7 +7,7 @@
         android:name=".app.App"
         android:allowBackup="true"
         android:fullBackupContent="true"
-        android:icon="@drawable/background_splash"
+        android:icon="@drawable/ic_heart"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/TransparentStatusBarTheme"
@@ -24,7 +24,8 @@
         </activity>
         <activity android:name=".activity.MangaListActivity"/>
         <activity android:name=".activity.MangaDetailActivity"/>
-
+        <activity android:name=".activity.ChapterDetailActivity">
+        </activity>
     </application>
 
 </manifest>
