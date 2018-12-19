@@ -20,6 +20,7 @@ public class FetchData {
 
                             m.setId(manga.id());
                             m.setName(manga.name());
+                            m.setAuthors(manga.authors());
                             m.setDescription(manga.description());
                             m.setStatus(manga.status().ordinal());
                             m.setImageUrl(manga.image().url());

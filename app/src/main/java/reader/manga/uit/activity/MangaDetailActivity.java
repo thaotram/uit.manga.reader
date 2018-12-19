@@ -2,8 +2,11 @@ package reader.manga.uit.activity;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableBoolean;
 import android.os.Bundle;
 import android.view.View;
+
+import java.util.Observable;
 
 import model.model.Manga;
 import reader.manga.uit.R;
@@ -36,5 +39,9 @@ public class MangaDetailActivity extends AppActivity {
 
     public void back(View view) {
         finish();
+    }
+
+    public class State extends Observable {
+        public final ObservableBoolean isOpenDrawer = new ObservableBoolean(false);
     }
 }

@@ -86,13 +86,13 @@
             <ui.Col
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/_background"
+                android:background="@color/__background"
                 android:layerType="hardware">
 
                 <ui.Row
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:background="@color/_background_action"
+                    android:background="@color/__background_action"
                     android:padding="20dp">
 
                     <ui.Square

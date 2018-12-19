@@ -3,6 +3,7 @@ query mangas {
         id
         name
         description
+        authors
         status
         image {
             url
