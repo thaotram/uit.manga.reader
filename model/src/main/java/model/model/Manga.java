@@ -10,6 +10,8 @@ import java.util.List;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.RealmResults;
+import io.realm.annotations.LinkingObjects;
 import io.realm.annotations.PrimaryKey;
 import io.realm.model_model_MangaRealmProxy;
 
@@ -17,6 +19,8 @@ import io.realm.model_model_MangaRealmProxy;
         value = Parcel.Serialization.BEAN,
         analyze = {Manga.class})
 public class Manga extends RealmObject {
+    @LinkingObjects("manga")
+    private final RealmResults<Chapter> chapters = null;
     @PrimaryKey
     private int id;
     private String name;
@@ -116,5 +120,9 @@ public class Manga extends RealmObject {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public RealmResults<Chapter> getChapters() {
+        return chapters;
     }
 }
