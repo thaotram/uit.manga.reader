@@ -22,7 +22,4 @@ public class Dialog {
                 .show();
     }
 
-    public interface Callback {
-        void call();
-    }
 }
