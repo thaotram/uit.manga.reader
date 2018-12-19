@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.MangaListActivity">
 
     <data>
 
@@ -15,7 +15,7 @@
 
         <variable
             name="state"
-            type="reader.manga.uit.activity.MainActivity.State"/>
+            type="reader.manga.uit.activity.MangaListActivity.State"/>
 
     </data>
 
