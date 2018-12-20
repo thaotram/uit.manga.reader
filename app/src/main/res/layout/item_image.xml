@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -15,19 +14,14 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:layerType="software"
-        tools:background="#ccc">
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp">
 
-        <ui.Image
+        <ui.Picture
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/_green"
-            app:_by="width"
+            app:_ratio="@{image.ratio}"
             app:_source="@{image.url}"/>
-
     </FrameLayout>
+
 </layout>

@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="50dp"
+            android:background="@color/__border_color"
             android:adapter="@{ImageRecyclerViewAdapter.getInstance(chapter)}"
             tools:listitem="@layout/item_image">
 
