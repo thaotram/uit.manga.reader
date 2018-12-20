@@ -126,7 +126,7 @@
             android:background="#FFFF"
             tools:background="#2000">
 
-            <ui.Image
+            <ui.Picture
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:_source="@{manga.imageUrl}"/>
