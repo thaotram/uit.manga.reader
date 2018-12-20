@@ -67,7 +67,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="2dp"
                                 android:ellipsize="end"
-                                android:fontFeatureSettings=""
                                 android:maxLines="2"
                                 android:scrollHorizontally="true"
                                 android:text="@{manga.name}"

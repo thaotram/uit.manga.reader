@@ -23,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="50dp"
-            android:background="@color/__border_color"
             android:adapter="@{ImageRecyclerViewAdapter.getInstance(chapter)}"
+            android:background="@color/__border_color"
             tools:listitem="@layout/item_image">
 
         </ui.List>
@@ -52,7 +52,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ellipsize="end"
                     android:gravity="start|center"
+                    android:maxLines="1"
                     android:paddingStart="10dp"
                     android:text="@{chapter.name}"
                     app:_autoSize="true"
