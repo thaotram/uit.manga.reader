@@ -43,6 +43,8 @@ dependencies {
     implementation project(path: ':model')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation 'com.facebook.fresco:fresco:1.11.0'
+
     implementation 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha3'
     implementation "com.apollographql.apollo:apollo-android-support:1.0.0-alpha3"
 
