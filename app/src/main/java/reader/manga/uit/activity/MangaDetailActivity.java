@@ -15,6 +15,7 @@ public class MangaDetailActivity extends AppActivity {
     public static final int LAYOUT = R.layout.activity_manga_detail;
     public static final String MANGA_ID = "MANGA_ID";
     private Manga manga;
+    private ActivityMangaDetailBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +34,18 @@ public class MangaDetailActivity extends AppActivity {
             finish();
             return;
         }
-        FetchData.FetchManga(this, realm, manga.getId());
+        FetchData.FetchManga(this, realm, manga.getId(),
+                () -> {
+                    showToast(R.string.fetch_mangas_done);
+                    binding.setManga(manga);
+                },
+                e -> showToast(R.string.fetch_mangas_fail),
+                null
+        );
     }
 
     private void initializeDataBinding() {
-        ActivityMangaDetailBinding binding = DataBindingUtil.setContentView(this, LAYOUT);
+        binding = DataBindingUtil.setContentView(this, LAYOUT);
         binding.setManga(manga);
     }
 
@@ -47,13 +55,11 @@ public class MangaDetailActivity extends AppActivity {
 
     @SuppressWarnings("unused")
     public void onRefresh(Swipe swipe) {
-        FetchData.FetchMangas(this, realm,
-                () -> showToast(R.string.fetch_mangas_done),
-                e -> showToast(R.string.fetch_mangas_fail),
-                () -> swipe.setRefreshing(false)
-        );
         FetchData.FetchManga(this, realm, manga.getId(),
-                () -> showToast(R.string.fetch_mangas_done),
+                () -> {
+                    showToast(R.string.fetch_mangas_done);
+                    binding.setManga(manga);
+                },
                 e -> showToast(R.string.fetch_mangas_fail),
                 () -> swipe.setRefreshing(false)
         );

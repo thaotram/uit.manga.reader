@@ -74,9 +74,17 @@ public class FetchData {
                         assert response.data() != null;
                         MangaQuery.Manga manga = Objects.requireNonNull(response.data().manga());
 
-                        final Manga m = new Manga();
+                        Manga m = r.where(Manga.class).equalTo("id", manga.id()).findFirst();
+                        if (m == null) {
+                            m = new Manga();
+                            m.setId(manga.id());
+                        }
 
-                        m.setId(manga.id());
+                        for (Chapter c : m.getChapters()) {
+                            c.getImages().deleteAllFromRealm();
+                            c.deleteFromRealm();
+                        }
+
                         m.setName(manga.name());
                         m.setAuthors(manga.authors());
                         m.setDescription(manga.description());
@@ -90,11 +98,6 @@ public class FetchData {
                             g = r.copyToRealmOrUpdate(g);
                             genres.add(g);
                         });
-
-                        for (Chapter c : m.getChapters()) {
-                            c.getImages().deleteAllFromRealm();
-                            c.deleteFromRealm();
-                        }
 
                         for (MangaQuery.Chapter chapter : manga.chapters()) {
                             final Chapter c = new Chapter();
