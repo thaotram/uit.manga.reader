@@ -47,6 +47,15 @@ public class MangaDetailActivity extends AppActivity {
 
     @SuppressWarnings("unused")
     public void onRefresh(Swipe swipe) {
-        FetchData.FetchManga(this, realm, manga.getId(), () -> swipe.setRefreshing(false));
+        FetchData.FetchMangas(this, realm,
+                () -> showToast(R.string.fetch_mangas_done),
+                e -> showToast(R.string.fetch_mangas_fail),
+                () -> swipe.setRefreshing(false)
+        );
+        FetchData.FetchManga(this, realm, manga.getId(),
+                () -> showToast(R.string.fetch_mangas_done),
+                e -> showToast(R.string.fetch_mangas_fail),
+                () -> swipe.setRefreshing(false)
+        );
     }
 }

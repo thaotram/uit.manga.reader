@@ -11,59 +11,64 @@ import model.model.Genre;
 import model.model.Image;
 import model.model.Manga;
 import reader.manga.uit.activity.AppActivity;
+import reader.manga.uit.apollo.ApolloClientHelper.OnFailure;
 import reader.manga.uit.utils.Callback;
 
 public class FetchData {
     public static void FetchMangas(AppActivity activity, Realm realm) {
-        FetchMangas(activity, realm, null);
+        FetchMangas(activity, realm, null, null, null);
     }
 
-    public static void FetchMangas(AppActivity activity, Realm realm, Callback callback) {
+    public static void FetchMangas(AppActivity activity, Realm realm, Callback onSuccess, OnFailure onFail, Callback after) {
         ApolloClientHelper.Query(
                 activity,
                 MangasQuery.builder().build(),
-                response -> realm.executeTransaction(r -> {
-                    assert response.data() != null;
-                    response.data().mangas().forEach(manga -> {
-                        final Manga m = new Manga();
+                response -> {
+                    realm.executeTransaction(r -> {
+                        assert response.data() != null;
 
-                        m.setId(manga.id());
-                        m.setName(manga.name());
-                        m.setAuthors(manga.authors());
-                        m.setDescription(manga.description());
-                        m.setStatus(manga.status().ordinal());
-                        m.setImageUrl(manga.image().url());
+                        realm.where(Manga.class).findAll().deleteAllFromRealm();
+                        response.data().mangas().forEach(manga -> {
+                            final Manga m = new Manga();
 
-                        final RealmList<Genre> genres = m.getGenres();
-                        manga.genres().forEach(rawGenre -> {
-                            final Genre genre = new Genre();
-                            genre.setName(rawGenre.name());
+                            m.setId(manga.id());
+                            m.setName(manga.name());
+                            m.setAuthors(manga.authors());
+                            m.setDescription(manga.description());
+                            m.setStatus(manga.status().ordinal());
+                            m.setImageUrl(manga.image().url());
 
-                            final Genre g = r.copyToRealmOrUpdate(genre);
+                            final RealmList<Genre> genres = m.getGenres();
+                            manga.genres().forEach(rawGenre -> {
+                                final Genre genre = new Genre();
+                                genre.setName(rawGenre.name());
 
-                            genres.add(g);
+                                final Genre g = r.copyToRealmOrUpdate(genre);
+
+                                genres.add(g);
+                            });
+
+                            r.copyToRealmOrUpdate(m);
                         });
-
-                        r.copyToRealmOrUpdate(m);
                     });
-                    if (callback != null) callback.call();
-                }),
+                    if (onSuccess != null) onSuccess.call();
+                    if (after != null) after.call();
+                },
                 e -> {
-                    if (callback != null) callback.call();
+                    if (onFail != null) onFail.call(e);
+                    if (after != null) after.call();
                 }
         );
     }
 
     public static void FetchManga(AppActivity activity, Realm realm, int id) {
-        FetchManga(activity, realm, id, null);
+        FetchManga(activity, realm, id, null, null, null);
     }
 
-    public static void FetchManga(AppActivity activity, Realm realm, int id, Callback callback) {
+    public static void FetchManga(AppActivity activity, Realm realm, int id, Callback onSuccess, OnFailure onFail, Callback after) {
         ApolloClientHelper.Query(
                 activity,
-                MangaQuery.builder()
-                        .id(id)
-                        .build(),
+                MangaQuery.builder().id(id).build(),
                 response -> {
                     realm.executeTransaction(r -> {
                         assert response.data() != null;
@@ -86,6 +91,11 @@ public class FetchData {
                             genres.add(g);
                         });
 
+                        for (Chapter c : m.getChapters()) {
+                            c.getImages().deleteAllFromRealm();
+                            c.deleteFromRealm();
+                        }
+
                         for (MangaQuery.Chapter chapter : manga.chapters()) {
                             final Chapter c = new Chapter();
                             c.setId(chapter.id());
@@ -97,6 +107,8 @@ public class FetchData {
                                 Image i = new Image();
                                 i.setId(image.id());
                                 i.setName(image.name());
+                                i.setHeight(image.height());
+                                i.setWidth(image.width());
                                 i.setUrl(image.url());
                                 i.setChapter(chapterInRealm);
                                 r.copyToRealmOrUpdate(i);
@@ -105,10 +117,12 @@ public class FetchData {
 
                         r.copyToRealmOrUpdate(m);
                     });
-                    if (callback != null) callback.call();
+                    if (onSuccess != null) onSuccess.call();
+                    if (after != null) after.call();
                 },
                 e -> {
-                    if (callback != null) callback.call();
+                    if (onFail != null) onFail.call(e);
+                    if (after != null) after.call();
                 }
         );
     }

@@ -45,7 +45,11 @@ public class MangaListActivity extends AppActivity {
 
     @SuppressWarnings("unused")
     public void onRefresh(Swipe swipe) {
-        FetchData.FetchMangas(this, realm, () -> swipe.setRefreshing(false));
+        FetchData.FetchMangas(this, realm,
+                () -> showToast(R.string.fetch_mangas_done),
+                e -> showToast(R.string.fetch_mangas_fail),
+                () -> swipe.setRefreshing(false)
+        );
     }
 
     public class State extends Observable {

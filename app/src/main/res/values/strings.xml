@@ -15,4 +15,6 @@
     <string name="genres">Genres</string>
     <string name="icon_chapter"></string>
     <string name="chapters">Chapters</string>
+    <string name="fetch_mangas_done">Fetch Mangas done!</string>
+    <string name="fetch_mangas_fail">Fetch Mangas fail</string>
 </resources>
