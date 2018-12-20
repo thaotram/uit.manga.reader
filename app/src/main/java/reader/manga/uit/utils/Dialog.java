@@ -21,5 +21,4 @@ public class Dialog {
                 .setNegativeButton(R.string.dialog_no, (dialog, which) -> no.call())
                 .show();
     }
-
 }

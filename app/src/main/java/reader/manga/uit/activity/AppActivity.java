@@ -3,6 +3,7 @@ package reader.manga.uit.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import io.realm.Realm;
 
@@ -16,6 +17,14 @@ public class AppActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         realm.close();
+    }
+
+    protected void showToast(int text) {
+        Toast.makeText(
+                getApplicationContext(),
+                text,
+                Toast.LENGTH_SHORT
+        ).show();
     }
 
     public void delayStartActivity(Intent intent) {
