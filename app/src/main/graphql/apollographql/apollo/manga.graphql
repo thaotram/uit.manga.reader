@@ -19,6 +19,8 @@ query manga($id: Int) {
                 id
                 name
                 url
+                width
+                height
             }
         }
     }

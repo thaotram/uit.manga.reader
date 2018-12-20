@@ -15,6 +15,8 @@ public class Image extends RealmObject {
     private String name;
     private String url;
     private Chapter chapter;
+    private int width;
+    private int height;
 
     public int getId() {
         return id;
@@ -46,5 +48,25 @@ public class Image extends RealmObject {
 
     public void setChapter(Chapter chapter) {
         this.chapter = chapter;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public float getRatio() {
+        return (float) width / (float) height;
     }
 }
