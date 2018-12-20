@@ -2,8 +2,8 @@
     <string name="app_name">Ai Scanlation</string>
     <string name="dialog_yes">Có</string>
     <string name="dialog_no">Không</string>
-    <string name="server_url">http://localhost:3000/api/graphql</string>
-
+    <string name="server_url">https://uit-manga.herokuapp.com/api/graphql</string>
+    <string name="local_server_url">http://localhost:3000/api/graphql</string>
     <string name="img_icon_ai">https://i.imgur.com/xEISBLV.png</string>
     <string name="username">username</string>
     <string name="icon_tag"></string>
